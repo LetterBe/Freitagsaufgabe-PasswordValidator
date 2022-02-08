@@ -37,6 +37,40 @@ class PasswordValidatorTest {
         assertEquals("Password has less then 8 symbols!", actual);
 
     }
+
+    @Test
+    void shouldBeBadWiThoutDigits() {
+        //given
+        String testPassword = "skJAj8aH";
+
+        //when
+        String actual = PasswordValidator.validatePassword(testPassword);
+        //then
+        assertEquals("Password should have numbers", actual);
+    }
+
+    @Test
+    void shouldBeBadOnlyLowercase() {
+        //given
+        String testPassword = "hfsjdfsh8";
+
+        //when
+        String actual = PasswordValidator.validatePassword(testPassword);
+        //then
+        assertEquals("Password should have capitals Letters", actual);
+    }
+
+
+    @Test
+    void shouldBeBadOnlyUppercase() {
+        //given
+        String testPassword = "HAJSKFJD8";
+
+        //when
+        String actual = PasswordValidator.validatePassword(testPassword);
+        //then
+        assertEquals("Password should have  Letters", actual);
+    }
 }
 
 
